@@ -1,0 +1,5 @@
+com\qa\pages\LoginPage.class
+com\qa\utils\ConfigReader.class
+com\qa\utils\WaitHelper.class
+com\qa\pages\DashboardPage.class
+com\qa\base\DriverFactory.class

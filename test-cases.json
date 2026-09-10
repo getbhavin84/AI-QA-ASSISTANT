@@ -1,0 +1,49 @@
+[ {
+  "testCaseId" : "TC001",
+  "title" : "Verify login button visibility on linkedin.com with implicit wait",
+  "preconditions" : [ "Browser is open", "Implicit wait is set to 10 seconds" ],
+  "testSteps" : [ "Navigate to https://www.linkedin.com", "Locate the login button on the page" ],
+  "expectedResult" : "The login button is successfully located and is visible on the page within the 10-second implicit wait window.",
+  "priority" : "High",
+  "testType" : "Functional",
+  "testData" : {
+    "username" : null,
+    "password" : null
+  }
+}, {
+  "testCaseId" : "TC002",
+  "title" : "Verify login button visibility with explicit timeout handling (Recommendation)",
+  "preconditions" : [ "Browser is open", "Simulate a delayed network or rendering condition" ],
+  "testSteps" : [ "Navigate to https://www.linkedin.com", "Wait for the login button to appear using the 10-second implicit wait limit" ],
+  "expectedResult" : "The test correctly identifies the login button if it renders within 10 seconds or throws a Timeout/NoSuchElement exception if it exceeds 10 seconds.",
+  "priority" : "Medium",
+  "testType" : "Edge",
+  "testData" : {
+    "username" : null,
+    "password" : null
+  }
+}, {
+  "testCaseId" : "TC003",
+  "title" : "Verify login button presence under restricted network conditions (Recommendation)",
+  "preconditions" : [ "Browser is open", "Network throttling is enabled (e.g., Slow 3G)" ],
+  "testSteps" : [ "Navigate to https://www.linkedin.com under throttled network", "Check if the login button becomes visible within the 10-second implicit wait timeframe" ],
+  "expectedResult" : "The login button renders and becomes visible within the 10-second implicit wait despite the slow network.",
+  "priority" : "Medium",
+  "testType" : "Performance",
+  "testData" : {
+    "username" : null,
+    "password" : null
+  }
+}, {
+  "testCaseId" : "TC004",
+  "title" : "Verify behavior when implicit wait is insufficient for slow loading elements (Recommendation)",
+  "preconditions" : [ "Browser is open", "Implicit wait is set to a value lower than required (e.g., 1 second) while page load is artificially delayed" ],
+  "testSteps" : [ "Navigate to https://www.linkedin.com", "Attempt to locate the login button" ],
+  "expectedResult" : "A NoSuchElementException is appropriately thrown when the element does not appear within the allotted wait time.",
+  "priority" : "Low",
+  "testType" : "Negative",
+  "testData" : {
+    "username" : null,
+    "password" : null
+  }
+} ]
